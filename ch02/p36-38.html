@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- See https://facebook.github.io/react/docs/installation.html for library files. -->
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <!-- minified optimized version
+    <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+    -->
+    <!-- Babel is used to transform JSX on the fly. -->
+    <script   src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <meta charset="utf-8">
+    <title>ReactJS by Example: Ch2. Styles in JSX (p.36-38)</title>
+  </head>
+  <body>
+    <div id="content">
+      <!-- This div's content will be managed by React. -->
+    </div>
+  </body>
+
+  <script type='text/babel'>
+    // Open Library API mock data
+    var data = [{
+      "when": "2 minutes ago",
+      "who": "Jill Dupre",
+      "description": "Created new account"
+    }, {
+      "when": "1 hour ago",
+      "who": "Lose White",
+      "description": "Created new account"
+    }, {
+      "when": "2 hours ago",
+      "who": "Jordan Whash",
+      "description": "Created new account"
+    }];
+    var headings = ['When', 'Who', 'Description'];
+    var title = "Ch2. Styles in JSX (p.36-38)";
+    var appProps = {headings: headings, rows: data, title: title};
+
+    // root component used by App
+    var RecentChangesTable = React.createClass ({
+      render: function () {
+        return <table>{this.props.children}</table>;
+      }
+    });
+
+    RecentChangesTable.Headings = React.createClass ({
+      render: function () {
+        var headings = this.props.headings.map (function (name, index) {
+          return <RecentChangesTable.Heading heading={name} key={index} />;
+        });
+        return <thead><tr>{headings}</tr></thead>;
+      }
+    });
+
+    RecentChangesTable.Heading = React.createClass ({
+      render: function () {
+        var headingStyle = {
+          backgroundColor: 'FloralWhite',
+          fontSize: '19px'
+        };
+        return <th style={headingStyle}>{this.props.heading}</th>;
+      }
+    });
+
+    RecentChangesTable.Rows = React.createClass ({
+      render: function () {
+        var rows = this.props.rows.map (function (row, index) {
+          return <RecentChangesTable.Row row={row} key={index} />;
+        });
+        return <tbody>{rows}</tbody>;
+      }
+    });
+
+    RecentChangesTable.Row = React.createClass ({
+      render: function () {
+        var trStyle = {backgroundColor: 'aliceblue'};
+        return <tr style={trStyle}>
+          <td>{this.props.row.when}</td>
+          <td>{this.props.row.who}</td>
+          <td>{this.props.row.description}</td>
+        </tr>
+      }
+    });
+
+    var App = React.createClass ({
+      render: function () {
+        return <div>
+        <h1>{this.props.title}</h1>
+        <RecentChangesTable>
+          <RecentChangesTable.Headings headings={this.props.headings} />
+          <RecentChangesTable.Rows rows={this.props.rows} />
+        </RecentChangesTable>
+        </div>;
+      }
+    });
+
+    ReactDOM.render (<App {...appProps} />,
+      document.getElementById ('content'));
+</script>
+</html>
