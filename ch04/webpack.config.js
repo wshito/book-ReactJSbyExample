@@ -1,9 +1,20 @@
+var webpack = require('webpack');
+
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: [
+      "webpack-dev-server/client?http://localhost:9000",
+      "webpack/hot/dev-server",
+      __dirname + "/src/index.tsx"
+    ],
     output: {
         filename: "bundle.js",
-        path: __dirname + "/static"
+        path: __dirname + "/asset", // install it under /asset directory.
+        publicPath: '/asset/'
     },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
+    ],
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
@@ -16,7 +27,7 @@ module.exports = {
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+            { test: /\.tsx?$/, loaders: ["react-hot", "awesome-typescript-loader"] }
         ],
 
         preLoaders: [

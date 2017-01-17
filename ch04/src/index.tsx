@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-let Hello = React.createClass({
-    render: function(){
-      return <h1>Hello World!</h1>;
+let InputExample = React.createClass({
+    render () {
+      return <input type='text' value='Good job!' />
     }
   });
 
-ReactDOM.render (<Hello />,
+ReactDOM.render (<InputExample />,
   document.getElementById('container'));
