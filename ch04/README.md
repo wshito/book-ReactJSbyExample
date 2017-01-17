@@ -49,7 +49,7 @@ npm install typescript awesome-typescript-loader source-map-loader --save-dev
 ```
 build/            --- TypeScript target Directory
 src/              --- TypeScript sources
-static/           --- Static files including bundle.js created by webpack.
+asset/            --- Stores generated files by webpack including bundle.js.
 index.html        --- The top page that loads bundle.js
 package.json      --- npm configuration
 tsconfig.json     --- TypeScript compiler configuration
