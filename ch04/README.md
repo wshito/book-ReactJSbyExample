@@ -7,7 +7,9 @@ To manually build invoke the following command.
 ./node_modules/.bin/webpack
 ```
 You can also use the hot reloading using the webpack-dev-server by simply
-invoking `npm start` and access `http://localhost:9000/weback-dev-server/`.
+invoking `npm start` and access `http://localhost:9000/weback-dev-server/index.html`.
+
+Each section is implemented separately.  Webpack is configured for multiple entries for multiple html pages.
 
 
 ## How Ch04 Project was Created
@@ -49,8 +51,8 @@ npm install typescript awesome-typescript-loader source-map-loader --save-dev
 ```
 build/            --- TypeScript target directory.
 src/              --- TypeScript sources
-asset/            --- Stores generated files by webpack including bundle.js.
-index.html        --- The top page that loads bundle.js
+asset/            --- Stores bundled JavaScript files by webpack.
+index.html        --- The top page that has links to indivisual sections.
 package.json      --- npm configuration
 tsconfig.json     --- TypeScript compiler configuration
 webpack.config.js --- webpack configuration

@@ -1,15 +1,17 @@
 var webpack = require('webpack');
 
 module.exports = {
-    entry: [
-      "webpack-dev-server/client?http://localhost:9000",
-      "webpack/hot/dev-server",
-      __dirname + "/src/index.tsx"
-    ],
+    entry: {
+      "devserver": [ "webpack-dev-server/client?http://localhost:9000",
+                     "webpack/hot/dev-server"],
+      "index-p66": __dirname + "/src/index-p66.tsx",
+      "index-p68-70": __dirname + "/src/index-p68-70.tsx"
+    },
     output: {
-        filename: "bundle.js",
-        path: __dirname + "/asset", // install it under /asset directory.
-        publicPath: '/asset/'
+      // devserver.js, index-p66.js, index-p68-70.js
+      filename: "[name].js",
+      path: __dirname + "/asset", // install it under /asset directory.
+      publicPath: '/asset/'
     },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
