@@ -47,7 +47,7 @@ npm install typescript awesome-typescript-loader source-map-loader --save-dev
 ### Files
 
 ```
-build/            --- TypeScript target Directory
+build/            --- TypeScript target directory.
 src/              --- TypeScript sources
 asset/            --- Stores generated files by webpack including bundle.js.
 index.html        --- The top page that loads bundle.js
@@ -57,3 +57,7 @@ webpack.config.js --- webpack configuration
 server.js         --- The server program for the hot reloading webpack-dev-server
                       during the development
 ```
+
+The webpack does not create `build` directory.  The editors such as Atom automatically build upon modification based on the configuration in `tsconfig.json`.  In our case, the `build` is assigned for compiler's output directory in `tsconfig.json`.
+
+Webpack's output directory is configured in `webpack.config.js`.
