@@ -7,7 +7,7 @@ To manually build invoke the following command.
 ./node_modules/.bin/webpack
 ```
 You can also use the hot reloading using the webpack-dev-server by simply
-invoking `npm start` and access `http://localhost:9000/weback-dev-server/index.html`.
+invoking `npm start` and access `http://localhost:9000/webpack-dev-server/index.html`.
 
 Each section is implemented separately.  Webpack is configured for multiple entries for multiple html pages.
 

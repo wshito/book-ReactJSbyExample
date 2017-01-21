@@ -6,7 +6,8 @@ module.exports = {
                      "webpack/hot/dev-server"],
       "index-p66": __dirname + "/src/index-p66.tsx",
       "index-p68-70": __dirname + "/src/index-p68-70.tsx",
-      "index-p70-73": __dirname + "/src/index-p70-73.tsx"
+      "index-p70-73": __dirname + "/src/index-p70-73.tsx",
+      "index-p74-75": __dirname + "/src/index-p74-75.tsx"
     },
     output: {
       // devserver.js, index-p66.js, index-p68-70.js
