@@ -7,7 +7,7 @@ let InputExample = React.createClass({
   },
 
   handleChange (event: any) {
-    this.setState ({name: event.target.value});
+    this.setState ({name: event.target.value.toUpperCase()});
   },
 
   render () {
