@@ -33,17 +33,17 @@
         render: function(){ // The access to the data is now encapsulated in this object.
             // The data is now obtained through this.props.data property which can
             // dyanmically set when render() is called.
-            var rows = this.props.data.map (function(row) {
+            let rows = this.props.data.map (function(row) {
                 return <tr>
                     <td>{row.when}</td>
                     <td>{row.who}</td>
                     <td>{row.description}</td>
                 </tr>
             });
-            var headings = this.props.headings.map (function(heading) {
+            let headings = this.props.headings.map (function(heading) {
               return <th>{heading}</th>
-            }); // title is also obtained dyanmically through this.props.title return
-            <div>
+            }); // title is also obtained dyanmically through this.props.title
+            return <div>
               <h1>{this.props.title}</h1>
               <table>
                 <thead><tr>{headings}</tr></thead>
@@ -52,8 +52,9 @@
             </div>
         }
     });
-    // Pass the variable data through render(). ReactDOM.render(
-    <App headings={headings} data={data} title={title}/>, document.getElementById("root"));
+    // Pass the variable data through props.
+    ReactDOM.render(<App headings={headings} data={data} title={title} />,
+      document.getElementById("root"));
 </script>
 
 </html>
